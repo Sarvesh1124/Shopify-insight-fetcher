@@ -1,18 +1,18 @@
-# 🛍️ Shopify Insights Fetcher
+# Shopify Insights Fetcher
 
-A **FastAPI backend application** that fetches insights from Shopify-powered stores **without using the official Shopify API**.
+A FastAPI backend application that fetches insights from Shopify-powered stores without using the official Shopify API.
 
 ---
 
-## ✨ Features
-- Fetches **whole product catalog** via `/products.json`
-- Extracts **hero products** (from home page)
-- Collects **Privacy Policy** and **Return/Refund Policy**
-- Extracts **FAQs** if present
-- Finds **Social Media Handles** (Instagram, FB, TikTok, etc.)
-- Collects **Contact details** (emails, phone numbers)
-- Extracts **Brand context text** (About Us section)
-- Finds **Important links** (Order Tracking, Blogs, Contact Us)
+## Features
+- Fetches whole product catalog via `/products.json`
+- Extracts hero products (from home page)
+- Collects Privacy Policy and Return/Refund Policy
+- Extracts FAQs if present
+- Finds Social Media Handles (Instagram, FB, TikTok, etc.)
+- Collects Contact details (emails, phone numbers)
+- Extracts Brand context text (About Us section)
+- Finds Important links (Order Tracking, Blogs, Contact Us)
 
 ---
 
@@ -34,11 +34,11 @@ uvicorn app.main:app --reload
 ```
 
 Server runs at:  
-👉 http://127.0.0.1:8000  
+ http://127.0.0.1:8000  
 
 ---
 
-## 📌 API Endpoints
+##  API Endpoints
 
 ### Health Check
 `GET /`
@@ -75,7 +75,7 @@ Response:
 
 ---
 
-## 🧪 Tests
+## Tests
 ```bash
 pytest
 ```
