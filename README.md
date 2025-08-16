@@ -1,81 +1,121 @@
-# Shopify Insights Fetcher
+Shopify Insight Fetcher
 
-A FastAPI backend application that fetches insights from Shopify-powered stores without using the official Shopify API.
+A FastAPI backend application that fetches and organizes insights from any given Shopify store (without using the official Shopify API).
+The API extracts a brand’s product catalog, policies, FAQs, contact details, social media handles, and more into a well-structured JSON format.
 
----
+Features
 
-## Features
-- Fetches whole product catalog via `/products.json`
-- Extracts hero products (from home page)
-- Collects Privacy Policy and Return/Refund Policy
-- Extracts FAQs if present
-- Finds Social Media Handles (Instagram, FB, TikTok, etc.)
-- Collects Contact details (emails, phone numbers)
-- Extracts Brand context text (About Us section)
-- Finds Important links (Order Tracking, Blogs, Contact Us)
+Product Catalog – Fetches the complete list of products from /products.json.
 
----
+Hero Products – Products highlighted on the home page.
 
-## Installation & Run
-```bash
-# clone repo
-git clone https://github.com/USERNAME/shopify-insights-fetcher.git
-cd shopify-insights-fetcher
+Policies – Privacy, Return & Refund policies.
 
-# create virtual environment
+FAQs – Extracts brand frequently asked questions.
+
+Social Media Handles – Instagram, Facebook, TikTok, etc.
+
+Contact Details – Emails, phone numbers.
+
+About Brand – Brand description text.
+
+Important Links – Order tracking, Contact Us, Blog links, etc.
+
+RESTful API with Swagger UI (/docs).
+
+Tech Stack
+
+Language: Python
+
+Framework: FastAPI
+
+Database: (Not used in mandatory section, MySQL can be added for bonus)
+
+Tools: Pydantic, Requests, BeautifulSoup
+
+Project Structure
+Shopify-insight-fetcher/
+│── app/
+│   ├── main.py          # FastAPI entry point
+│   ├── models.py        # Pydantic models
+│── requirements.txt     # Python dependencies
+│── README.md            # Project documentation
+
+Setup Instructions
+
+Clone the repository:
+
+git clone https://github.com/Sarvesh1124/Shopify-insight-fetcher.git
+cd Shopify-insight-fetcher
+
+
+Create a virtual environment (recommended):
+
 python -m venv venv
-source venv/bin/activate   # on Windows: venv\Scripts\activate
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
 
-# install dependencies
+
+Install dependencies:
+
 pip install -r requirements.txt
 
-# run server
+
+Run the server:
+
 uvicorn app.main:app --reload
-```
 
-Server runs at:  
- http://127.0.0.1:8000  
 
----
+Open API documentation in browser:
+http://127.0.0.1:8000/docs
 
-##  API Endpoints
+Usage Example
+Request
 
-### Health Check
-`GET /`
-```json
-{
-  "message": "Shopify Insights Fetcher is running.",
-  "version": "1.0.0"
-}
-```
+POST → /fetch-insights
 
-### Fetch Insights
-`POST /insights`  
-Request:
-```json
 {
   "website_url": "https://memy.co.in"
 }
-```
-Response:
-```json
+
+Response (sample)
 {
-  "website_url": "https://memy.co.in",
   "brand_name": "MeMy",
-  "hero_products": [],
-  "whole_product_catalog": [],
-  "privacy_policy": "...",
-  "return_refund_policy": "...",
-  "faqs": [],
-  "social_handles": ["https://instagram.com/..."],
-  "contact_details": ["support@memy.co.in"],
-  "important_links": ["https://memy.co.in/pages/contact"]
+  "products": [
+    {"title": "Hair Growth Serum", "price": "₹799"},
+    {"title": "Nourishing Shampoo", "price": "₹499"}
+  ],
+  "hero_products": ["Hair Growth Serum"],
+  "privacy_policy": "We respect your privacy...",
+  "refund_policy": "Refunds can be requested within 7 days...",
+  "faqs": [
+    {"question": "Do you have COD?", "answer": "Yes, we do."}
+  ],
+  "social_handles": {
+    "instagram": "https://instagram.com/memy",
+    "facebook": "https://facebook.com/memy"
+  },
+  "contact": {
+    "email": "support@memy.co.in",
+    "phone": "+91-9876543210"
+  },
+  "about_brand": "MeMy is a brand dedicated to hair care...",
+  "important_links": {
+    "order_tracking": "/pages/track-order",
+    "blogs": "/blogs/news"
+  }
 }
-```
 
----
+Notes
 
-## Tests
-```bash
-pytest
-```
+Works for most Shopify stores (/products.json endpoint must be public).
+
+Some sites may structure FAQs/policies differently; the application attempts to handle via scraping.
+
+For bonus features, competitor analysis and MySQL persistence can be added.
+
+
+
+You said:
+yes
+ChatGPT said:
