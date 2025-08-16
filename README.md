@@ -3,6 +3,8 @@ Shopify Insight Fetcher
 A FastAPI backend application that fetches and organizes insights from any given Shopify store (without using the official Shopify API).
 The API extracts a brand’s product catalog, policies, FAQs, contact details, social media handles, and more into a well-structured JSON format.
 
+
+
 Features
 
 Product Catalog – Fetches the complete list of products from /products.json.
@@ -23,6 +25,8 @@ Important Links – Order tracking, Contact Us, Blog links, etc.
 
 RESTful API with Swagger UI (/docs).
 
+
+
 Tech Stack
 
 Language: Python
@@ -33,6 +37,8 @@ Database: (Not used in mandatory section, MySQL can be added for bonus)
 
 Tools: Pydantic, Requests, BeautifulSoup
 
+
+
 Project Structure
 Shopify-insight-fetcher/
 │── app/
@@ -40,6 +46,8 @@ Shopify-insight-fetcher/
 │   ├── models.py        # Pydantic models
 │── requirements.txt     # Python dependencies
 │── README.md            # Project documentation
+
+
 
 Setup Instructions
 
@@ -68,6 +76,8 @@ uvicorn app.main:app --reload
 
 Open API documentation in browser:
 http://127.0.0.1:8000/docs
+
+
 
 Usage Example
 Request
@@ -105,6 +115,8 @@ Response (sample)
     "blogs": "/blogs/news"
   }
 }
+
+
 
 Notes
 
