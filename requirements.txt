@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+httpx
+beautifulsoup4
+lxml
+SQLAlchemy
+pydantic-settings
+python-multipart
+pymysql
+pytest
