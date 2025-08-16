@@ -128,6 +128,4 @@ For bonus features, competitor analysis and MySQL persistence can be added.
 
 
 
-You said:
-yes
-ChatGPT said:
+
