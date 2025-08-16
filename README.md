@@ -16,7 +16,7 @@ A FastAPI backend application that fetches insights from Shopify-powered stores 
 
 ---
 
-## 🚀 Installation & Run
+## Installation & Run
 ```bash
 # clone repo
 git clone https://github.com/USERNAME/shopify-insights-fetcher.git
